@@ -37,9 +37,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = False #True
 
-ALLOWED_HOSTS = []
+# ALLOWED_HOSTS = []
 
-ALLOWED_HOSTS = ['gnotes.onrender.com', '127.0.0.1']
+ALLOWED_HOSTS = ['google-notes-clone-aek0.onrender.com', '127.0.0.1']
 
 
 
