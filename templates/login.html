@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="card mx-auto" style="max-width: 400px;">
+    <div class="card-header text-center">
+        <h5>Login</h5>
+    </div>
+    <div class="card-body">
+        <form method="post">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label for="id_username" class="form-label">Username</label>
+                <input type="text" name="username" class="form-control" id="id_username" required>
+            </div>
+            <div class="mb-3">
+                <label for="id_password" class="form-label">Password</label>
+                <input type="password" name="password" class="form-control" id="id_password" required>
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Login</button>
+        </form>
+        <p class="text-center mt-3">
+            Don't have an account? <a href="{% url 'signup' %}">Sign Up</a>
+        </p>
+    </div>
+</div>
+{% endblock %}

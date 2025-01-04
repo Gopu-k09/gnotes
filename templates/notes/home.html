@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="row g-3">
+    {% for note in notes %}
+    <div class="col-md-4">
+        <div class="card" style="background-color: {{ note.color }};">
+            <div class="card-body">
+                <h5 class="card-title">{{ note.title }}</h5>
+                <p class="card-text">{{ note.content }}</p>
+                <a href="{% url 'edit_note' note.id %}" class="btn btn-primary btn-sm"><i class="bi bi-pencil"></i> Edit</a>
+                <a href="{% url 'delete_note' note.id %}" class="btn btn-danger btn-sm"><i class="bi bi-trash"></i> Delete</a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+<a href="{% url 'create_note' %}" class="btn btn-success mt-4"><i class="bi bi-plus-circle"></i> Create New Note</a>
+{% endblock %}

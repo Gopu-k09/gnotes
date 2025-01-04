@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="card">
+    <div class="card-header">
+        {% if note %}
+            Edit Note
+        {% else %}
+            Create Note
+        {% endif %}
+    </div>
+    <div class="card-body">
+        <form method="post">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label for="title" class="form-label">Title</label>
+                <input type="text" name="title" id="title" class="form-control" value="{{ form.title.value|default:'' }}" required>
+            </div>
+            <div class="mb-3">
+                <label for="content" class="form-label">Content</label>
+                <textarea name="content" id="content" class="form-control" rows="4" required>{{ form.content.value|default:'' }}</textarea>
+            </div>
+            <div class="mb-3">
+                <label for="color" class="form-label">Color</label>
+                <input type="color" name="color" id="color" class="form-control form-control-color" value="{{ form.color.value|default:'#ffffff' }}">
+            </div>
+            <button type="submit" class="btn btn-primary">
+                {% if note %}
+                    Update Note
+                {% else %}
+                    Create Note
+                {% endif %}
+            </button>
+        </form>
+    </div>
+</div>
+{% endblock %}
